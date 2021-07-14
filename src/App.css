@@ -8,4 +8,87 @@
 
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: 12vh auto 10vh;
+  height: 100vh;
+}
+
+.App-Header {
+  border-bottom: 1.5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+}
+
+.App-Content {
+  padding: 0 1rem;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+.App-Footer {
+  border-top: 1.5px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: bisque;
+}
+
+.App-Footer_Quote {
+  font-weight: 500;
+}
+
+.AddTodoClick {
+  all: unset;
+  padding: 0.3rem 0.5rem;
+  background-color: #3b87aa;
+  color: floralwhite;
+}
+
+#AppInput {
+  height: 1.9rem;
+  margin-right: 0.5rem;
+  padding-left: 0.3rem;
+}
+.ListHolder {
+  margin-top: 1rem;
+}
+
+.List-Element {
+  gap: 3rem;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  margin-bottom: 0.8rem;
+  border-radius: 5px;
+  padding: 0.45rem 0;
+}
+
+.Delete-Element {
+  padding: 0.1rem 0.6rem;
+  color: red;
+  font-weight: 600;
+  border: none;
+  background: none;
+}
+
+.Element-Status {
+  padding: 0.2rem 0.6rem;
+  color: red;
+  border: 1px solid red;
+  background: none;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.Element-Status--Toggled {
+  padding: 0.2rem 0.6rem;
+  color: green;
+  border: 1px solid green;
+  background: none;
+  border-radius: 10px;
+  font-weight: 500;
 }
