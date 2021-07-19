@@ -11,14 +11,14 @@
   display: grid;
   grid-template-rows: 12vh auto 10vh;
   height: 100vh;
+  background-color: #cec7c7;
 }
 
 .App-Header {
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid #f0eeee8a;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
 }
 
 .App-Content {
@@ -28,11 +28,10 @@
 }
 
 .App-Footer {
-  border-top: 1.5px solid black;
+  border-top: 1.5px solid #ecebeb;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: bisque;
 }
 
 .App-Footer_Quote {
@@ -45,18 +44,13 @@
   color: floralwhite;
 }
 
-#AppInput {
-  height: 1.9rem;
-  margin-right: 0.5rem;
+#todoItemInput {
+  height: 1.8rem;
   padding-left: 0.3rem;
-}
-.ListHolder {
-  margin-top: 1rem;
 }
 
 .List-Element {
   gap: 2rem;
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
   justify-content: space-between;
@@ -64,11 +58,12 @@
   margin-bottom: 0.8rem;
   border-radius: 5px;
   padding: 0.45rem 0;
-  background-color: #deba86;
+  background-color: #dfbd67;
 }
 
 .List-Element:nth-of-type(2n) {
-  background-color: #bec3c6;
+  background-color: #535199;
+  color: honeydew;
 }
 
 .Delete-Element {
@@ -82,17 +77,18 @@
 .Element-Status {
   padding: 0.2rem 0.6rem;
   color: red;
-  border: 1px solid red;
-  background: none;
+  border: 1.5px solid red;
+  background: #ffffffd4;
   border-radius: 10px;
   font-weight: 500;
+  width: 70px;
 }
 
 .Element-Status--Toggled {
   padding: 0.2rem 0.6rem;
   color: green;
-  border: 1px solid green;
-  background: none;
+  border: 1.5px solid green;
+  background: #ffffffd4;
   border-radius: 10px;
   font-weight: 500;
 }
