@@ -48,12 +48,6 @@ function App() {
     });
     setTodoListItems(toggleStatus);
   }
-  /* 
-1. find todo in listOfTodos (from state)
-2. change tood.status from found todo pending to done
-3. insert changed todo back into listOfTodos
-4. save newListOfTodos into state
-*/
 
   function TodoListItems({ todo }) {
     //console.log(todo.isComplete);
