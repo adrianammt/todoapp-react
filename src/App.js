@@ -4,7 +4,8 @@ import { useState } from "react";
 
 function App() {
   const [todoListItems, setTodoListItems] = useState([]);
-  console.log(todoListItems);
+  //console.log(todoListItems);
+
   function handleSubmit(event) {
     console.log("works");
 
@@ -21,7 +22,6 @@ function App() {
           isComplete: false,
         },
       ];
-      console.log("Hola");
       setTodoListItems(newTodoItems);
     } else {
       alert("Please type in a TODO!");
@@ -29,23 +29,81 @@ function App() {
     form.reset();
   }
 
-  function TodoListItems({ showTodos, todo, status }) {
+  function handelOnclickDelete(id) {
+    //console.log(id);
+    const filterNotDeletedTodos = todoListItems.filter(
+      (todo) => todo.id !== id
+    );
+    setTodoListItems(filterNotDeletedTodos);
+  }
+
+  function handelToggleStatus(id) {
+    const toggleStatus = todoListItems.map((todo) => {
+      console.log(todo.isComplete);
+      if (todo.id === id) {
+        return { ...todo, isComplete: !todo.isComplete };
+      } else {
+        return todo;
+      }
+    });
+    setTodoListItems(toggleStatus);
+  }
+  /* 
+1. find todo in listOfTodos (from state)
+2. change tood.status from found todo pending to done
+3. insert changed todo back into listOfTodos
+4. save newListOfTodos into state
+*/
+
+  function TodoListItems({ todo }) {
+    //console.log(todo.isComplete);
+
+    function handleOnClick() {
+      handelOnclickDelete(todo.id);
+    }
+
+    function handleOnToggle() {
+      handelToggleStatus(todo.id);
+    }
+
+    let toggleStatusClass;
+    if (todo.isComplete) {
+      toggleStatusClass = "Element-Status--Toggled";
+    }
+
+    let toggleStatusText;
+    if (!todo.isComplete) {
+      toggleStatusText = "Pending";
+    } else {
+      toggleStatusText = "Done";
+    }
+
     return (
       <li className="List-Element">
-        <p>{todo}</p>
-        <button className="Element-Status">Pending</button>
-        <button className="Delete-Element">X</button>
+        <p>{todo.name}</p>
+        <button
+          onClick={handleOnToggle}
+          className={`Element-Status ${toggleStatusClass}`}
+        >
+          {toggleStatusText}
+        </button>
+        <button onClick={handleOnClick} className="Delete-Element">
+          X
+        </button>
       </li>
     );
   }
-  const showTodos = todoListItems.map((newTodo, index) => {
-    console.log(newTodo);
-    console.log(newTodo.name);
+
+  const showTodos = todoListItems.map((newTodo) => {
+    //console.log(newTodo);
+    //console.log(newTodo.name);
     return (
       <TodoListItems
-        key={index}
-        todo={newTodo.name}
-        status={newTodo.isComplete}
+        key={newTodo.id}
+        //todo={newTodo.name}
+        todo={newTodo}
+        //id={newTodo.id}
+        //status={newTodo.isComplete}
       />
     );
   });
